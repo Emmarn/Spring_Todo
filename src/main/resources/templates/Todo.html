@@ -12,7 +12,6 @@
     <div th:each="todo : ${todoList}">
         <h2 th:text="${todo.getTitle()}"></h2>
         <p th:text="${todo.getId()}"></p>
-        <hr/>
         <p th:text="${todo.getTodomessage()}"></p>
         <button th:data-id="${todo.getId()}" th:onclick="handleDelete(this.getAttribute('data-id'))">Ta bort</button>
     </div>

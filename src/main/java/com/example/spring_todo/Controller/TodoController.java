@@ -1,14 +1,15 @@
 package com.example.spring_todo.Controller;
 
 
-import com.example.spring_todo.DTO.TodoDTOConverter;
+import com.example.spring_todo.Repositorys.TodoRepository;
 import com.example.spring_todo.Services.TodoService;
 import com.example.spring_todo.entities.Todo;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,6 +18,8 @@ public class TodoController {
 
     @Autowired
             TodoService todoService;
+    @Autowired
+             TodoRepository todoRepository;
 
     List<Todo> Todolist = new ArrayList<>(List.of(
             new Todo("Köpa kattmat", "Köp fyra burkar"),

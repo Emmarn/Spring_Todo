@@ -21,14 +21,13 @@ public class TodoController {
     @Autowired
              TodoRepository todoRepository;
 
-    List<Todo> Todolist = new ArrayList<>(List.of(
-            new Todo("Köpa kattmat", "Köp fyra burkar"),
-            new Todo("Handla", "Glöm inte mjölk!")
-    ));
+
 
     @GetMapping
-    public List<Todo> getTodolist(){
-        return Todolist;
+    public String getTodolist(Model model){
+        List<Todo> todoList = todoService.findAll();
+        model.addAttribute("todoList", todoList);
+        return "Todo";
     }
 
     @GetMapping("/addToDoForm")
@@ -36,24 +35,30 @@ public class TodoController {
 
     @GetMapping("/{id}")
     public Todo getTodoById(@PathVariable("id") int id){
-        return Todolist.stream()
+       return todoService.getTodoByid(id);
+        /* return Todolist.stream()
                 .filter(todo -> todo.getId() == id )
                 .findFirst()
-                .orElseThrow();
+                .orElseThrow();*/
     }
 
     @PostMapping
-    public Todo createTodo(@RequestBody Todo todo){
-        Todolist.add(todo);
-        return todo;
+    public String createTodo(@ModelAttribute Todo todo){
+        todoService.createTodo(todo); //todoService.save(todo)
+        return "redirect:/todo";
+        //Todolist.add(todo);
+       // return todo;
+
     }
 
     @DeleteMapping("/{id}")
-    public void deleteTodoById(@PathVariable("id") int id){
-        Todolist.removeIf(todo -> todo.getId() == id);
+    public ResponseEntity<Void> deleteTodoById(@PathVariable("id") int id){
+        todoService.deleteTodoById(id);
+        return ResponseEntity.status(303).header("Location", "/todo").build();
+        //Todolist.removeIf(todo -> todo.getId() == id);
     }
 
-    @PutMapping("/{id}")
+    /*@PutMapping("/{id}")
     public Todo updateTodoById(@PathVariable("id") int id, @RequestBody Todo changedtodo){
         Todo existingTodo = Todolist.stream()
                 .filter(todo -> todo.getId() == id)
@@ -64,7 +69,7 @@ public class TodoController {
 
         return existingTodo;
 
-    }
+    }*/
 
 
 }

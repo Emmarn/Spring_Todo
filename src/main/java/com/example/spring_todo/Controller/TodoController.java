@@ -31,6 +31,9 @@ public class TodoController {
         return Todolist;
     }
 
+    @GetMapping("/addToDoForm")
+    public  String addToDo(){return "NewTodoForm";}
+
     @GetMapping("/{id}")
     public Todo getTodoById(@PathVariable("id") int id){
         return Todolist.stream()

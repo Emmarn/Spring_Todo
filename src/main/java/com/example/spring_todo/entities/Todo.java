@@ -1,36 +1,32 @@
 package com.example.spring_todo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 public class Todo implements Serializable {
 
     @Id
-    @Column
-    static int idCounter = 1;
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column
     private String title;
+
     @Column
     private String todomessage;
 
     public Todo(String title, String todomessage) {
-        this.id = idCounter;
         this.title = title;
         this.todomessage = todomessage;
-        idCounter++;
     }
 
     public Todo() {
 
     }
 
-    public static void setIdCounter(int idCounter) {
-        Todo.idCounter = idCounter;
+    public void setId(int id) {
+        this.id=id;
     }
 
     public void setTitle(String title) {
@@ -41,15 +37,6 @@ public class Todo implements Serializable {
         this.todomessage = todomessage;
     }
 
-    public static int getIdCounter() {
-        return idCounter;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Id
     public int getId() {
         return id;
     }

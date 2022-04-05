@@ -8,7 +8,15 @@
 <body>
 <div class="container">
 <div class="namn">
-    <H1 class="title">Hallå</H1>
+    <H1 class="title">Fixa sysslorna för fan!</H1>
+    <div th:each="todo : ${todoList}">
+        <h2 th:text="${todo.getTitle()}"></h2>
+        <p th:text="${todo.getId()}"></p>
+        <hr/>
+        <p th:text="${todo.getTodomessage()}"></p>
+        <button th:data-id="${todo.getId()}" th:onclick="handleDelete(this.getAttribute('data-id'))">Ta bort</button>
+    </div>
+<a th:href="@{/todo/addToDoForm}"> <button>Lägga till</button></a>
 </div>
 </div>
 </body>

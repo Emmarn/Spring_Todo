@@ -13,6 +13,7 @@
         <h2 th:text="${todo.getTitle()}"></h2>
         <p th:text="${todo.getId()}"></p>
         <p th:text="${todo.getTodomessage()}"></p>
+        <a th:href="@{|/todo/${todo.getId()}/edittodo|}"><button>Redigera</button></a>
         <button th:data-id="${todo.getId()}" th:onclick="handleDelete(this.getAttribute('data-id'))">Ta bort</button>
     </div>
 <a th:href="@{/todo/addToDoForm}"> <button>Lägga till</button></a>

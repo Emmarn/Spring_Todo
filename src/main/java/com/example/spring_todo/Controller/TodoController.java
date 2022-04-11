@@ -33,6 +33,13 @@ public class TodoController {
     @GetMapping("/addToDoForm")
     public  String addToDo(){return "NewTodoForm";}
 
+    @GetMapping("/{id}/Edittodo")
+    public String editTodo(@PathVariable int id, Model model){
+        Todo todo=todoService.findById(id);
+        model.addAttribute("todo", todo);
+        return "Edittodo";
+    }
+
     @GetMapping("/{id}")
     public Todo getTodoById(@PathVariable("id") int id){
        return todoService.getTodoByid(id);

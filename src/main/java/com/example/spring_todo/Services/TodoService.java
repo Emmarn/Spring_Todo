@@ -28,6 +28,10 @@ public class TodoService {
         return todoList;
     }
 
+    public Todo findById(int id){
+        return todoRepository.findById(id).orElseThrow();
+    }
+
     public void deleteTodoById(int id) {
         //todoRepository.deleteById(id);
         todoList.removeIf(todo -> todo.getId() == id);

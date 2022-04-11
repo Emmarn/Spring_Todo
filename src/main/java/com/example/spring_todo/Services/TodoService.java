@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class TodoService {
+public class TodoService{
 
     TodoRepository todoRepository;
 
@@ -39,7 +39,7 @@ public class TodoService {
     }
 
     public void createTodo(Todo todo) {
-        //todoRepository.save(todo);
+        todoRepository.save(todo);
 
        /*int index = todoList.lastIndexOf();
 

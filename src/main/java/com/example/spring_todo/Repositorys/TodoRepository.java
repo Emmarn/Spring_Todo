@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface TodoRepository extends JpaRepository<Todo, Integer> {
-      //  List<Todo> findByTodo_title(String title);
+       //List<Todo> findByTodo_title(String title);
+
 
 }

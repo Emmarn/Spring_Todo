@@ -4,6 +4,7 @@ import com.example.spring_todo.Services.TodoService;
 import com.example.spring_todo.entities.Todo;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Paragraph;
@@ -29,7 +30,21 @@ public class TodoView extends VerticalLayout {
 
         H1 cykelTjuv = new H1("VEM TOG MIN KEXCHOKLAD GJORD AV EN CYKELPUMP");
 
-        Button button = new Button("Ny todo");
+       HorizontalLayout mainContent = new HorizontalLayout(grid, todoform);
+       mainContent.setSizeFull();
+
+        Button button = new Button("Ny todo",evt-> {
+            Dialog dialog = new Dialog();
+            Todoform dialogForm = new Todoform(todoService, this);
+            dialogForm.setTodo(new Todo());
+            Todo todo = new Todo();
+
+            dialogForm.setTodo(todo);
+
+            dialog.add(todoform);
+            dialog.open();
+            //todoform.setVisible(true);
+        });
         Paragraph pa = new Paragraph("Jari och Tor är samma, dom har en hammare båda två, men jari är lite coolare");
 
         setupGrid();

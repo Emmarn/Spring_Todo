@@ -5,7 +5,10 @@ import com.example.spring_todo.Repositorys.TodoRepository;
 import com.example.spring_todo.Services.TodoService;
 import com.example.spring_todo.entities.Todo;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
@@ -35,6 +38,13 @@ public class manageTodoView extends VerticalLayout {
     });
 };
 
-    public void updateItems() {
+
     }
-}
+
+    public void updateItems() {
+
+
+    }
+}*/
+
+

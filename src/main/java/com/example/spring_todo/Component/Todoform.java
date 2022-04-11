@@ -2,8 +2,12 @@ package com.example.spring_todo.Component;
 
 import com.example.spring_todo.Services.TodoService;
 import com.example.spring_todo.entities.Todo;
-import com.example.spring_todo.views.manageTodoView;
+import com.example.spring_todo.views.Route;
+import com.example.spring_todo.views.TodoView;
+/*import com.example.spring_todo.views.manageTodoView;*/
+import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
@@ -20,7 +24,8 @@ public class Todoform  extends FormLayout {
      TodoService todoService;
      manageTodoView manageTodoView;
 
-     /*public TodoForm (TodoService todoService, manageTodoView manageTodoView) {
+
+    public Todoform (TodoService todoService, TodoView todoView) {
          this.todoService = todoService;
          this.manageTodoView = manageTodoView;
          binder.bindInstanceFields(this);
@@ -33,25 +38,33 @@ public class Todoform  extends FormLayout {
 
      }
 
-     private void handleSave() {
-     Todo todo = binder.validate().getBinder().getBean();
-      if(todo.getId() == 0) {
-    todoService.save(todo);
-     } else {
-     todoService.updateById(todo.getId(), todo)
-    }
-    setTodo(null);
-     manageTodoView.updateItems();
-
-     this.getParent().ifPresent(c -> {
-     if(c instanceof Dialog) {
-     ((Dialoo) c).close();
-    }
-     });
+     private void updateSaveTodo() {
+       //  Todo testTodo = new Todo("Tetet", "asdasd");
+       // todoService.save(testTodo);
+         Todo todo = binder.validate().getBinder().getBean();
 
 
+         if (todo.getId() == 0) {
+             todoService.save(todo);
+         } else {
+             todoService.updateById(todo.getId(), todo);
+         }
+         setTodo(null);
+
+         //todoService.createTodo(Todoform.);
 
 
+        // todoService.save(new Todo(todo.getTitle(), todo.getTodomessage()));
+         /*setTodo(null);*/
+
+         todoView.updateItems();
+
+         this.getParent().ifPresent(c -> {
+             if (c instanceof Dialog) {
+                 ((Dialog) c).close();
+             }
+         });
+     }
 
     public void setTodo(Todo todo) {
         if(todo != null) {

@@ -57,4 +57,23 @@ public class TodoService {
     public Todo getTodoByid(int id) {
         return todoRepository.getById(id);
     }
+
+    public Todo save(Todo todo) {
+        return todoRepository.save(todo);
+    }
+
+    public Todo updateById(int id, Todo updatedTodo) {
+
+        Todo activeTodo = todoRepository.findById(id).orElseThrow();
+
+        if(updatedTodo.getTitle() != null)
+            activeTodo.setTitle(updatedTodo.getTitle());
+        if(updatedTodo.getTodomessage() != null)
+            activeTodo.setTodomessage(updatedTodo.getTodomessage());
+
+        todoRepository.save(updatedTodo);
+
+        return activeTodo;
+
+    }
 }

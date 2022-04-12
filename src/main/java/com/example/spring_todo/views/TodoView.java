@@ -1,6 +1,7 @@
 package com.example.spring_todo.views;
 
 import com.example.spring_todo.Services.TodoService;
+import com.example.spring_todo.Repositorys.TodoRepository;
 import com.example.spring_todo.entities.Todo;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -21,7 +22,7 @@ public class TodoView extends VerticalLayout {
     Grid<Todo> grid = new Grid<>(Todo.class);
     TodoService todoService;
 
-    public TodoView(TodoService todoService){
+    public TodoView(TodoService todoService, TodoRepository todoRepository){
         this.todoService = todoService;
 
         setAlignItems(Alignment.CENTER);
@@ -107,6 +108,11 @@ public class TodoView extends VerticalLayout {
 
     public void updateGridItems(){
         grid.setItems(todoService.findAll());
+    }
+
+    public void updateItems() {
+
+
     }
 
 

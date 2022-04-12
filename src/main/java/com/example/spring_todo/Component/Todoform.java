@@ -16,13 +16,21 @@ import com.vaadin.flow.data.binder.Binder;
 
 public class Todoform  extends FormLayout {
 
+
     TextField title = new TextField("Title");
     TextArea todomessage = new TextArea("Message");
-    Button todoButton = new Button("Ny knapp");
+    Button todoButton = new Button("Spara");
 
      Binder<Todo> binder = new BeanValidationBinder<>(Todo.class);
      TodoService todoService;
-     manageTodoView manageTodoView;
+     /*manageTodoView manageTodoView;*/
+     TodoView todoView;
+
+    /*public Todoform(TodoService todoService, TodoView todoView) {
+    }*/
+
+    /*public Todoform(TodoService todoService, com.example.spring_todo.views.manageTodoView manageTodoView) {
+    }*/
 
 
     public Todoform (TodoService todoService, TodoView todoView) {
@@ -73,5 +81,6 @@ public class Todoform  extends FormLayout {
         } else {
             setVisible(false);
         }
-    }*/
+    }
+
 }

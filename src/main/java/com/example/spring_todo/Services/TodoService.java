@@ -19,8 +19,8 @@ public class TodoService{
     }
 
     List<Todo> todoList = new ArrayList<>(List.of(
-            new Todo(1, "Köpa kattmat", "Köp fyra burkar"),
-            new Todo(2, "Handla", "Glöm inte mjölk!")
+            new Todo( "Köpa kattmat", "Köp fyra burkar"),
+            new Todo( "Handla", "Glöm inte mjölk!")
     ));
 
     public List<Todo> findAll() {
@@ -47,7 +47,7 @@ public class TodoService{
        int id = newIndex.getId()+1;*/
 
 
-        int maxId = 0;
+        /*int maxId = 0;
         for (int i = 0; i < todoList.size(); i++) {
             if (maxId < todoList.get(i).getId()) {
                 maxId = todoList.get(i).getId();
@@ -55,7 +55,7 @@ public class TodoService{
         }
         int id = maxId + 1;
 
-        todoList.add(new Todo(id, todo.getTitle(), todo.getTodomessage()));
+        todoList.add(new Todo(id, todo.getTitle(), todo.getTodomessage()));*/
     }
 
     public Todo getTodoByid(int id) {

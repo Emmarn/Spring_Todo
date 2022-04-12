@@ -21,11 +21,11 @@ public class Todo implements Serializable {
         this.todomessage = todomessage;
     }
 
-    public Todo(int id, String title, String todomessage){
+    /*public Todo(int id, String title, String todomessage){
         this.id = id;
         this.title = title;
         this.todomessage = todomessage;
-    }
+    }*/
 
     public Todo() {
 
@@ -55,4 +55,12 @@ public class Todo implements Serializable {
         return todomessage;
     }
 
+    @Override
+    public String toString() {
+        return "Todo{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", todomessage='" + todomessage + '\'' +
+                '}';
+    }
 }

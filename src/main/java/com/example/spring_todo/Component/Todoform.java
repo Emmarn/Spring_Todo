@@ -13,6 +13,7 @@ import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.Binder;
+import com.vaadin.flow.data.binder.ValidationException;
 
 public class Todoform  extends FormLayout {
 
@@ -35,9 +36,10 @@ public class Todoform  extends FormLayout {
 
     public Todoform (TodoService todoService, TodoView todoView) {
          this.todoService = todoService;
-         this.manageTodoView = manageTodoView;
+         this.todoView = todoView;
          binder.bindInstanceFields(this);
-         setVisible(false);
+         setVisible(true);
+
 
          todoButton./*addAttachListener*/addClickListener(e ->
                  updateSaveTodo());

@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 public class TodoService{
 
     TodoRepository todoRepository;
+    private Todo todo;
 
     public TodoService(TodoRepository todoRepository) {
         this.todoRepository = todoRepository;
@@ -64,6 +65,10 @@ public class TodoService{
 
     public Todo save(Todo todo) {
         return todoRepository.save(todo);
+    }
+
+    public Todo getTodo(){
+        return todo;
     }
 
     public Todo updateById(int id, Todo updatedTodo) {

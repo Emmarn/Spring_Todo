@@ -24,10 +24,13 @@ public class TodoView extends VerticalLayout {
 
     Grid<Todo> grid = new Grid<>(Todo.class);
     TodoService todoService;
+    Todoform todoform;
+    //TodoRepository todorepository;
 
     public TodoView(TodoService todoService, TodoRepository todoRepository){
         this.todoService = todoService;
-
+        //this.todorepository = todoRepository;
+        this.todoform = new Todoform(todoService, this);
         setAlignItems(Alignment.CENTER);
         setSizeFull();
 
@@ -102,6 +105,13 @@ public class TodoView extends VerticalLayout {
 
         editColumn.setEditorComponent(btnLayout);
 
+
+    }
+
+    public void addTodo(Todo todo){
+        if(todo == null){
+
+        }
 
     }
 

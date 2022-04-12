@@ -39,7 +39,8 @@ public class Todoform  extends FormLayout {
          binder.bindInstanceFields(this);
          setVisible(false);
 
-         todoButton.addClickListener(e -> updateSaveTodo());
+         todoButton./*addAttachListener*/addClickListener(e ->
+                 updateSaveTodo());
 
          add(title, todomessage, todoButton);
 

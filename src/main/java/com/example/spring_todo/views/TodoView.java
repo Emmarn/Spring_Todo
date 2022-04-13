@@ -16,7 +16,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.data.binder.Binder;
-
 import java.awt.*;
 
 @Route("todo")
@@ -33,7 +32,6 @@ public class TodoView extends VerticalLayout {
         this.todoform = new Todoform(todoService, this);
         setAlignItems(Alignment.CENTER);
         setSizeFull();
-
 
         H1 cykelTjuv = new H1("VEM TOG MIN KEXCHOKLAD GJORD AV EN CYKELPUMP");
 
@@ -104,15 +102,12 @@ public class TodoView extends VerticalLayout {
         HorizontalLayout btnLayout = new HorizontalLayout(saveBtn, deleteBtn, cancelBtn);
 
         editColumn.setEditorComponent(btnLayout);
-
-
     }
 
     public void addTodo(Todo todo){
         if(todo == null){
 
         }
-
     }
 
     public void deleteItemAndUpdate(){
@@ -124,8 +119,7 @@ public class TodoView extends VerticalLayout {
     }
 
     public void updateItems() {
-
-
+        grid.setItems((todoService.findAll()));
     }
 
 

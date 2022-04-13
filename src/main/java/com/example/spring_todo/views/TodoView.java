@@ -44,11 +44,11 @@ public class TodoView extends VerticalLayout {
             Dialog dialog = new Dialog();
             Todoform dialogForm = new Todoform(todoService, this);
             dialogForm.setTodo(new Todo());
-            Todo todo = new Todo();
+            //Todo todo = new Todo();
 
-            dialogForm.setTodo(todo);
+            //dialogForm.setTodo(todo);
 
-            dialog.add(todoform);
+            dialog.add(dialogForm);
             dialog.open();
             //todoform.setVisible(true);
         });

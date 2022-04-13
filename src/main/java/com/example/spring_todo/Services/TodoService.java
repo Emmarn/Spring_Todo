@@ -25,8 +25,7 @@ public class TodoService{
     ));
 
     public List<Todo> findAll() {
-        //return todoRepository.findAll();
-        return todoList;
+        return todoRepository.findAll();
     }
 
     public Todo findById(int id){
@@ -34,8 +33,7 @@ public class TodoService{
     }
 
     public void deleteTodoById(int id) {
-        //todoRepository.deleteById(id);
-        todoList.removeIf(todo -> todo.getId() == id);
+        todoRepository.deleteById(id);
 
     }
 

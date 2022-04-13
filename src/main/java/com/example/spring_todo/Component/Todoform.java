@@ -38,7 +38,7 @@ public class Todoform  extends FormLayout {
          this.todoService = todoService;
          this.todoView = todoView;
          binder.bindInstanceFields(this);
-         setVisible(true);
+         setVisible(false);
 
 
          todoButton./*addAttachListener*/addClickListener(e ->
